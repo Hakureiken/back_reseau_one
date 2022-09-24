@@ -1,0 +1,38 @@
+ADMINISTRATIF
+- Mettre TRELLO / NOTION / ... ou ton outil de suivi à jour
+
+---
+
+FRONTEND
+- Designer et intégrer la page d'affichage d'une formation (appellée Module d'après nos futures entités)
+dans Next JS en tenant compte des blocs suivants AU MINIMUM : 
+    - Le programme ou contenu du module
+    - Objectifs pédagogiques
+    - Public
+    - Les prérequis
+    - Les méthodes pédagogiques utilisées
+    - Durée en jours et en heures
+    - Ref du module
+
+---
+
+BACKEND
+- Créer / modifier le template des views dans Laravel (voir si avec Jetstream ou non)
+- Créer ou modifier les composants dans la partie Laravel (on garde les input de base ou non?)
+
+- Créer les entités liées aux commandes dans le CRM en partant de la logique suivante : 
+un projet contient un ou plusieurs modules de formations
+
+---
+
+FRONTEND
+- Concevoir la page d'affichage des formations sous format "catalogue" (un peu comme les évènements)
+- REFLECHIR à comment intégrer une page du style "Exemple de projet" qui contiendrait plusieurs modules 
+(Exemple: Parcours Bureautique qui contiendrait les modules Word, Excel, et Powerpoint)
+
+---
+
+POINTS D'ATTENTION:
+- Un projet qui contient des modules en 2022 pourrait être différent dans son contenu (Modules)
+d'un projet qui contiendrait les même modules en 2023, les contenus des modules ayant probablement 
+changés entre temps.
