@@ -18,11 +18,22 @@ class FormationFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'content' => $this->faker->text(50),
-            'starting_date' => $this->faker->dateTimeBetween('-3 week', 'now'),
-            'ending_date' => $this -> faker -> dateTimeBetween('now', '+3 week'),
-            'document_id' => $this -> faker -> randomDigitNotNull(), // password
+            'id_crm' => $this -> faker -> word(),
+            'laraRef' => $this -> faker ->unique()-> word(),
+            'assignedUserName' => $this -> faker -> word(),
+            'assignedUserId' => $this -> faker -> word(),
+            'name' => $this -> faker -> name(),
+            'concernedPublic' => $this -> faker -> text(50),
+            'dateAndLocation' => $this -> faker -> text(50),
+            'description' => $this -> faker -> text(50),
+            'objective' => $this -> faker-> text(50),
+            'prerequisite' => $this -> faker -> text(50),
+            'trainingprogram' => $this -> faker -> text(50),
+            'reference' => $this -> faker -> word(),
+            'duration_hours' => $this -> faker -> numberBetween(20,800),
+            'duration_days' => $this -> faker -> numberBetween(7,170),
+            'document_id' => $this -> faker -> randomDigitNotNull(),
+            'is_submitted' => $this -> faker -> boolean()
         ];
     }
 }

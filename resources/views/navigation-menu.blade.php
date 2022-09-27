@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-jet-application-mark class="block h-9 w-auto" />
+                        <x-jet-authentication-card-logo class="block h-9 w-auto" />
                     </a>
                 </div>
 
@@ -68,7 +68,11 @@
                         </x-jet-dropdown>
                     </div>
                 @endif
-
+                <div>
+                    @auth
+                        {{Auth::user() -> first_name}} {{ Auth::user() -> last_name}}
+                    @endauth
+                </div>
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">

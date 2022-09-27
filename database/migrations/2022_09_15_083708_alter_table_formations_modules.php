@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('formations_users', function (Blueprint $table) {
-            $table->integer('xxx');
-        });
+        // Schema::table('formations_users', function (Blueprint $table) {
+        //     $table->integer('xxx');
+        // });
     }
 
     /**
@@ -25,8 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('formations_users', function (Blueprint $table) {
-            $table->dropColumn(['xxx']);
-        });
+        // Schema::table('formations_users', function (Blueprint $table) {
+        //     $table->dropColumn(['xxx']);
+        // });
     }
 };

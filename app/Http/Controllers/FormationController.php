@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use App\Models\Formation;
 use Illuminate\Http\Request;
+use GuzzleHttp\Psr7\Request as RequestGuzzle;
 
 class FormationController extends Controller
 {
@@ -36,13 +38,49 @@ class FormationController extends Controller
      */
     public function store(Request $request)
     {
+        $laraRef = bin2hex(random_bytes(10)).time();
+        $client = new Client();
+        $headers = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json'
+        ];
+
+        $bodyArray = json_encode([
+            "name" => $request -> name,
+            "assignedUserId" => "632836db1b7252184",
+            "concernedPublic" => $request -> concernedPublic,
+            "dateAndLocation" => $request -> dateAndLocation,
+            "description" => $request -> description,
+            "objective" => $request -> objective,
+            "prerequisite" => $request -> prerequisite,
+            "trainingprogram" => $request -> trainingprogram,
+            "reference" => $request -> reference,
+            "laraRef" => $laraRef,
+            "durationHours" => $request -> duration_hours,
+            "durationDays" => $request -> duration_days,
+        ]);
+        // dd($bodyArray);
+        $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/training', $headers, $bodyArray);
+        $res = $client->sendAsync($requestGuzzle)->wait();
+        echo $res->getBody();
+
         $formation = new Formation;
 
         $formation -> name = $request -> name;
-        $formation -> content = $request -> content;
-        $formation -> starting_date = $request -> starting_date;
-        $formation -> ending_date = $request -> ending_date;
-        $formation -> document_id = $request -> document_id;
+        $formation -> assignedUserId = "632836db1b7252184";
+        $formation -> assignedUserName  = "Kévin Gasté";
+        $formation -> laraRef = $laraRef;
+        $formation -> concernedPublic = $request -> concernedPublic;
+        $formation -> dateAndLocation = $request -> dateAndLocation;
+        $formation -> description = $request -> description;
+        $formation -> objective = $request -> objective;
+        $formation -> prerequisite = $request -> prerequisite;
+        $formation -> trainingprogram = $request -> trainingprogram;
+        $formation -> reference = $request -> reference;
+        $formation -> duration_hours = $request -> duration_hours;
+        $formation -> duration_days = $request -> duration_days;
+        $formation -> document_id = "1";
+        $formation -> is_submitted = false;
 
         $formation -> save();
 
@@ -55,8 +93,9 @@ class FormationController extends Controller
      * @param  Formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function show(Formation $formation)
+    public function show(string $laraRef)
     {
+        $formation = Formation::where('laraRef', htmlspecialchars($laraRef))->firstOrFail();
         return view('formation.show', compact('formation'));
     }
 
@@ -81,14 +120,25 @@ class FormationController extends Controller
     public function update(Request $request, Formation $formation)
     {
         $formation -> name = $request -> name;
-        $formation -> content = $request -> content;
-        $formation -> starting_date = $request -> starting_date;
-        $formation -> ending_date = $request -> ending_date;
-        $formation -> document_id = $request -> document_id;
+        $formation -> assignedUserId = "632836db1b7252184";
+        $formation -> assignedUserName  = "Kévin Gasté";
+        $formation -> concernedPublic = $request -> concernedPublic;
+        $formation -> dateAndLocation = $request -> dateAndLocation;
+        $formation -> description = $request -> description;
+        $formation -> objective = $request -> objective;
+        $formation -> prerequisite = $request -> prerequisite;
+        $formation -> trainingprogram = $request -> trainingprogram;
+        $formation -> reference = $request -> reference;
+        $formation -> duration_hours = $request -> duration_hours;
+        $formation -> duration_days = $request -> duration_days;
+        $formation -> document_id = "1";
+        $formation -> is_submitted = false;
 
         $formation -> save();
 
-        return redirect() -> route('formation.show', $formation -> id);
+        $formation -> save();
+
+        return redirect() -> route('formation.show', $formation -> laraRef);
     }
 
     /**
