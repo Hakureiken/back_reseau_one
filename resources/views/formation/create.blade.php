@@ -38,7 +38,7 @@
             <textarea class="w-full" id="objective" name="objective"></textarea>
         </div>
 
-        <div class="mt-2 w-full">
+        <div class="mt-2 w-full relative">
             <label for="trainingprogram">Programme de la formation</label>
             {{-- contenu dynamique des modules ajoutés --}}
             <div class="flex justify-between">
@@ -48,7 +48,7 @@
                     </ul>
                 </div>
 
-                <div class="w-1/2">
+                <div class="w-1/2 relative pl-3">
                     <div id="activeModule" class="bg-lime-500 text-slate-50 text-center mb-2 py-2 px-8 rounded-full cursor-pointer w-full">
                         Ajouter
                     </div>
@@ -57,7 +57,28 @@
                         @foreach ($modules as $module)
                         <div class="flex items-center justify-between my-1">
                             <span>{{$module -> id}} - {{$module -> name}}</span>
-                            <span class="addModule text-4xl cursor-pointer border rounded-full p-1 w-8 h-8 flex justify-center items-center" data-name="{{$module -> name}}" data-id="{{$module -> id}}" data-days="{{$module->durationDays}}" data-hours="{{$module->durationHours}}">+</span>
+                            <span class="flex items-center">
+                                <span class="checkedShowModuleInfo mx-2">
+                                    <label for="{{$module->reference.'f'}}">
+                                        <svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                            <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                                        </svg>
+                                    </label>
+                                    <input class="hidden" type="radio" name="showModulef" id="{{$module->reference.'f'}}">
+
+                                    <div class="moduleInfo shadow-md bg-slate-50 px-2 py-1 w-[calc(25vw-0.75rem)] absolute top-0 left-3 translate-x-[100%]">
+                                        <h2>{{$module->name}} - {{$module->reference}}</h2>
+                                        <div>
+                                            {!! html_entity_decode($module->program) !!}
+                                        </div>
+
+                                        <span class="closeModal cursor-pointer font-bold">Fermer</span>
+                                    </div>
+                                </span>
+                                <span class="addModule text-4xl cursor-pointer border rounded-full p-1 w-8 h-8 flex justify-center items-center" data-name="{{$module -> name}}" data-id="{{$module -> id}}" data-days="{{$module->durationDays}}" data-hours="{{$module->durationHours}}" data-program="{{$module->program}}" data-ref="{{$module->reference}}">+</span>
+                            </span>
+                            
                         </div>
                         @endforeach
                     </div>
