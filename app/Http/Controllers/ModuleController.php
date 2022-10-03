@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Module;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use GuzzleHttp\Psr7\Request as RequestGuzzle;
 
 class ModuleController extends Controller
 {
@@ -36,10 +38,37 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
+        $client = new Client();
+        $headers = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json'
+        ];
+
+        $bodyArray = json_encode([
+            "name" => $request -> name,
+            "assignedUserId" => "632836db1b7252184",
+            "program" => $request -> program,
+            "description" => $request -> description,
+            "reference" => $request -> reference,
+            "domain" => $request -> domain,
+            "durationHours" => $request -> durationHours,
+            "durationDays" => $request -> durationDays,
+        ]);
+        // dd($body);
+        // dd($bodyArray);
+        $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
+        $res = $client->sendAsync($requestGuzzle)->wait();
+        echo $res->getBody();
+
         $module = new Module;
 
         $module -> name = $request -> name;
-        $module -> duration = $request -> duration;
+        $module -> reference = $request -> reference;
+        $module -> program = htmlentities($request -> program);
+        $module -> description = $request -> description;
+        $module -> domain = $request -> domain;
+        $module -> durationHours = $request -> durationHours;
+        $module -> durationDays = $request -> durationDays;
 
         $module -> save();
 
@@ -77,8 +106,35 @@ class ModuleController extends Controller
      */
     public function update(Request $request, Module $module)
     {
+        $client = new Client();
+        $headers = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json'
+        ];
+        $varTest = '/633703672899afcfa';
+        $request -> module_id = json_encode($request -> module_id);
+
+        $bodyArray = json_encode([
+            "name" => $request -> name,
+            "program" => $request -> program,
+            "description" => $request -> description,
+            "domain" => $request -> domain,
+            "durationHours" => $request -> durationHours,
+            "durationDays" => $request -> durationDays,
+        ]);
+
+        // dd($request->durationHours);
+        $requestGuzzle = new RequestGuzzle('PATCH', 'https://crm.reseau-one.com/api/v1/module'.$varTest, $headers, $bodyArray);
+        $res = $client->sendAsync($requestGuzzle)->wait();
+        echo $res->getBody();
+
+
         $module -> name = $request -> name;
-        $module -> duration = $request -> duration;
+        $module -> program = $request -> program;
+        $module -> description = $request -> description;
+        $module -> domain = $request -> domain;
+        $module -> durationHours = $request -> durationHours;
+        $module -> durationDays = $request -> durationDays;
 
         $module -> save();
 

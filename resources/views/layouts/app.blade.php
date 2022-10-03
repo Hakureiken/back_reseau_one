@@ -15,8 +15,11 @@
 
         <!-- Styles -->
         @livewireStyles
+        <x-rich-text-trix-styles />
+
     </head>
     <body class="font-sans antialiased">
+        <div class="hidden bg-green-100 bg-blue-100"></div>
         <x-jet-banner />
 
         <div class="min-h-screen bg-gray-100">

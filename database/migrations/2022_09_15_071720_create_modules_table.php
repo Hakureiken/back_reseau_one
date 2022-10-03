@@ -16,7 +16,12 @@ return new class extends Migration
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('duration');
+            $table->string('reference');
+            $table->text('program');
+            $table->string('description');
+            $table->enum('domain',['informatique ','RH','droit']);
+            $table->integer('durationHours');
+            $table->integer('durationDays');
             $table->timestamps();
         });
     }

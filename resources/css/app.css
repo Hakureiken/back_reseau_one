@@ -1,3 +1,15 @@
+@import './_trix.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+ul,ol {
+    list-style: disc;
+    list-style-position: inside;
+}
+.checkedShowModuleInfo > input + .moduleInfo {
+    display: none;
+}
+.checkedShowModuleInfo > input:checked + .moduleInfo {
+    display: block;
+}

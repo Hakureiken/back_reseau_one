@@ -14,12 +14,12 @@ module.exports = {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
-        },
+        }
     },
 
     plugins: [
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
-        require('@tailwindcss/line-clamp')
+        require('@tailwindcss/line-clamp'),
     ],
 };

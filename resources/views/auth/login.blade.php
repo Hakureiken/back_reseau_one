@@ -23,7 +23,7 @@
 
             <div class="flex flex-col mt-4">
                 <x-jet-label class="text-slate-50" for="password" value="{{ __('Entrez votre mot de passe') }}" />
-                <x-jet-input id="password" class="pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="password" name="password" required autocomplete="current-password" />
+                <x-jet-input id="password" class="pl-4 h-11 rounded-xl my-4 mx-0 border-none text-black" type="password" name="password" required autocomplete="current-password" />
             </div>
 
             {{-- à garder? --}}

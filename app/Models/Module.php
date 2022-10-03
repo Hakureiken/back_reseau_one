@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Formation;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Tonysm\RichTextLaravel\Models\Traits\HasRichText;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Module extends Model
@@ -15,4 +16,15 @@ class Module extends Model
     {
         return $this->BelongsTo(Formation::class);
     }
+
+    use HasRichText;
+
+    protected $guarded = [
+        'code',
+    ];
+
+    protected $richTextFields = [
+        'body',
+        'notes',
+    ];
 }

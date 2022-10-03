@@ -18,7 +18,12 @@ class ModuleFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'duration' => $this->faker->randomDigitNotNull(),
+            'reference' => $this -> faker -> word(),
+            'program' => $this -> faker -> text(100),
+            'description' => $this -> faker -> text(50),
+            'domain' => $this -> faker -> randomElement(['informatique ','RH','droit']),
+            'durationHours' => $this -> faker -> randomDigitNotNull(),
+            'durationDays' => $this -> faker ->randomDigitNotNull(),
         ];
     }
 }

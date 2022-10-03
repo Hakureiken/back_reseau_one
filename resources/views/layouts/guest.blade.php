@@ -11,6 +11,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <x-rich-text-trix-styles />
+
     </head>
     <body>
         <div class="relative h-screen text-slate-50 overflow-hidden">
