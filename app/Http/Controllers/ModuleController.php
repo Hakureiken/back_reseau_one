@@ -54,17 +54,15 @@ class ModuleController extends Controller
             "durationHours" => $request -> durationHours,
             "durationDays" => $request -> durationDays,
         ]);
-        // dd($body);
-        // dd($bodyArray);
         $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
         $res = $client->sendAsync($requestGuzzle)->wait();
-        echo $res->getBody();
+        dd($res->getBody());
 
         $module = new Module;
 
         $module -> name = $request -> name;
         $module -> reference = $request -> reference;
-        $module -> program = htmlentities($request -> program);
+        $module -> program = $request -> program;
         $module -> description = $request -> description;
         $module -> domain = $request -> domain;
         $module -> durationHours = $request -> durationHours;

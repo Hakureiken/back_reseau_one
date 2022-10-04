@@ -73,6 +73,10 @@
                         {{Auth::user() -> first_name}} {{ Auth::user() -> last_name}}
                     @endauth
                 </div>
+                <div>
+                    <a class="text-slate-600" href="{{route('formation.index')}}">Formations</a>
+                    <a class="text-slate-600 ml-5" href="{{route('module.index')}}">Modules</a>
+                </div>
                 <!-- Settings Dropdown -->
                 <div class="ml-3 relative">
                     <x-jet-dropdown align="right" width="48">
