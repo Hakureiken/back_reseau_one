@@ -56,7 +56,7 @@ class ModuleController extends Controller
         ]);
         $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
         $res = $client->sendAsync($requestGuzzle)->wait();
-        dd($res->getBody());
+        echo $res->getBody();
 
         $module = new Module;
 
