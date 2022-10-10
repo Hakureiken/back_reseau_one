@@ -31,7 +31,6 @@ Route::get('/webhook-create-formation',[ EspoController::class, "webhookCreateFo
 Route::get('/webhook-create-user',[ EspoController::class, "webhookCreateUser"])->name('webhook.user.create');
 Route::get('/webhook-create-organization',[ EspoController::class, "webhookCreateOrganization"])->name('webhook.organization.create');
 Route::get('/webhook-create-document',[ EspoController::class, "webhookCreateDocument"])->name('webhook.document.create');
- 
 
 Route::middleware([
     'auth:sanctum',
@@ -42,7 +41,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-
 
 Route::resource('formation',FormationController::class);
 Route::resource('document',DocumentController::class);

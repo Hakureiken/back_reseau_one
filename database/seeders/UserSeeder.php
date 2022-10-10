@@ -2,22 +2,22 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class DatabaseSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        \App\Models\Organization::factory(10)->create();
-        \App\Models\User::factory(10)->create();
+        User::factory(10)->create();
         DB::table('users')->insert([
             'organization_id' => null,
             'first_name' => 'Kévin',
@@ -32,15 +32,5 @@ class DatabaseSeeder extends Seeder
             'image' => null,
             'remember_token' => Str::random(10),
         ]);
-        \App\Models\Module::factory(10)->create();
-        \App\Models\Project::factory(10)->create();
-        \App\Models\Propale::factory(10)->create();
-        \App\Models\Document::factory(10)->create();
-        \App\Models\Formation::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

@@ -17,8 +17,18 @@ class OrganizationFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this -> faker -> name(),
-            'adress' => $this -> faker -> word(),
+            'siret' => $this -> faker -> word(),
+            'numSalaries' => $this -> faker -> word(),
+            'codeAPENAF' => $this -> faker -> word(),
+            'numTVA' => $this -> faker -> word(),
+            'opcoOpca' => $this -> faker -> word(),
+            'idcc' => $this -> faker -> word(),
+            'denominationUniteLegale' => $this -> faker -> word(),
+            'libelleCommuneEtablissement' => $this -> faker -> word(),
+            'postalCodeEtablissement' => $this -> faker -> word(),
+            'numVoieEtablissement' => $this -> faker -> word(),
+            'typeVoieEtablissement' => $this -> faker -> word(),
+            'libelleVoieEtablissement' => $this -> faker -> word(),
         ];
     }
 }

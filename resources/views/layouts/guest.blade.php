@@ -15,7 +15,7 @@
 
     </head>
     <body>
-        <div class="relative h-screen text-slate-50 overflow-hidden">
+        <div class="relative text-slate-50">
             {{ $slot }}
         </div>
     </body>

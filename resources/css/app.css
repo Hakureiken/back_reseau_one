@@ -13,3 +13,7 @@ ul,ol {
 .checkedShowModuleInfo > input:checked + .moduleInfo {
     display: block;
 }
+
+.regions input.region:checked ~ .departements {
+    display:flex
+}

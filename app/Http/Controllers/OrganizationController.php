@@ -49,8 +49,18 @@ class OrganizationController extends Controller
     {
         $organization = new Organization;
 
-        $organization -> name = $request -> name;
-        $organization -> adress = $request -> adress;
+        $organization -> siret = $request -> siret;
+        $organization -> denominationUniteLegale = $request -> denominationUniteLegale;
+        $organization -> libelleCommuneEtablissement = $request -> libelleCommuneEtablissement;
+        $organization -> postalCodeEtablissement = $request -> postalCodeEtablissement;
+        $organization -> numVoieEtablissement = $request -> numVoieEtablissement;
+        $organization -> typeVoieEtablissement = $request -> typeVoieEtablissement;
+        $organization -> libelleVoieEtablissement = $request -> libelleVoieEtablissement;
+        $organization -> numSalaries = $request -> numSalaries;
+        $organization -> codeAPENAF = $request -> codeAPENAF;
+        $organization -> opcoOpca = $request -> opcoOpca;
+        $organization -> idcc = $request -> idcc;
+        $organization -> numTVA = $request -> numTVA;
 
         $organization -> save();
 

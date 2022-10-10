@@ -1,5 +1,5 @@
 @auth
-@if (Auth::user()-> role < 90 || Auth::user() -> name == $formation -> assignedUserName)
+@if (Auth::user()-> role > 90 || Auth::user() -> name == $formation -> assignedUserName)
 
 <x-app-layout>
 

@@ -15,8 +15,18 @@ return new class extends Migration
     {
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('adress');
+            $table->string('siret');
+            $table->string('numSalaries');
+            $table->string('codeAPENAF');
+            $table->string('numTVA');
+            $table->string('opcoOpca');
+            $table->string('idcc');
+            $table->string('denominationUniteLegale');
+            $table->string('libelleCommuneEtablissement');
+            $table->string('postalCodeEtablissement');
+            $table->string('numVoieEtablissement');
+            $table->string('typeVoieEtablissement');
+            $table->string('libelleVoieEtablissement');
             $table->timestamps();
         });
     }

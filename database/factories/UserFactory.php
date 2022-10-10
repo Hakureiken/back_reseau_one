@@ -26,12 +26,15 @@ class UserFactory extends Factory
     {
         return [
             'organization_id' => $this->faker->randomDigitNotNull(),
-            'name' => $this->faker->name(),
+            'first_name' => $this->faker->name(),
+            'last_name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'mobilityDepartment' => json_encode($this->faker->words(3, false)),
             'role' => $this->faker->numberBetween(0,100),
-            'adress' => $this->faker->word(),
+            'poste' => $this->faker->word(),
+            'telephone' => $this->faker->word(),
             'image' => $this->faker->image(),
             'remember_token' => Str::random(10),
         ];

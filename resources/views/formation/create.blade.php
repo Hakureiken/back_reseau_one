@@ -1,6 +1,4 @@
 <x-app-layout>
-
-
     <h1 class="text-3xl text-center my-4">Page demande de creation d'une formation</h1>
     <form id="createFormation" action="{{route('formation.store')}}" method="post" class="flex flex-wrap justify-evenly align-center w-1/2 m-auto">
         @csrf

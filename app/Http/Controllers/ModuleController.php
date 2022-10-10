@@ -38,6 +38,7 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
+        // stock information in the API 
         $client = new Client();
         $headers = [
             'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
@@ -54,10 +55,12 @@ class ModuleController extends Controller
             "durationHours" => $request -> durationHours,
             "durationDays" => $request -> durationDays,
         ]);
+
         $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
         $res = $client->sendAsync($requestGuzzle)->wait();
         echo $res->getBody();
 
+        // on stock les informations dans la bdd laravel
         $module = new Module;
 
         $module -> name = $request -> name;
