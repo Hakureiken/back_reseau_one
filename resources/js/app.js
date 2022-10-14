@@ -51,7 +51,7 @@ if (document.getElementById('createFormation') || document.getElementById('editF
     function insertModule(element) {
         
         // on ajout un élément à la formation (côté gauche) à chaque fois qu'on appuie sur le "+" à côté d'un module avec toutes les données nécessaires
-        affectedModules.innerHTML += `<li data-order="${count}" data-module-id='${element.getAttribute('data-id')}' data-hours='${element.getAttribute('data-hours')}' data-days='${element.getAttribute('data-days')}' class='formationModule px-2 duration-1000 flex w-full justify-between'>` + element.getAttribute('data-name') + '<input type="hidden" value="'+element.getAttribute('data-id')+'" name="module_id[]"><div class="flex items-center"><span class="up cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></svg></span><span class="down cursor-pointer my-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/></svg></span><span class="checkedShowModuleInfo"><label for="'+element.getAttribute('data-ref')+'"><svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></label><input class="hidden" type="radio" name="showModule" id="'+element.getAttribute('data-ref')+'"><div class="moduleInfo z-10 shadow-md bg-slate-50 px-2 py-1 w-[calc(25vw-0.75rem)] absolute top-0 right-0"><h2>'+element.getAttribute('data-name')+' - ' + element.getAttribute('data-ref')+'</h2><div>'+element.getAttribute('data-program')+'</div><span class="closeModal cursor-pointer font-bold">Fermer</span></div></span><span class="deleteModule text-xl ml-2">X</span></div></li>';
+        affectedModules.innerHTML += `<li data-order="${count}" data-module-id='${element.getAttribute('data-id')}' data-hours='${element.getAttribute('data-hours')}' data-days='${element.getAttribute('data-days')}' class='formationModule px-2 duration-1000 flex w-full justify-between'>` + element.getAttribute('data-name') + '<input type="hidden" value="'+element.getAttribute('data-id')+'" name="module_id[]"><div class="flex items-center"><span class="up cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/></svg></span><span class="down cursor-pointer my-2"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/></svg></span><span class="checkedShowModuleInfo"><label for="'+element.getAttribute('data-ref')+'"><svg class="cursor-pointer" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-info-circle" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/></svg></label><input class="hidden" type="radio" name="showModule" id="'+element.getAttribute('data-ref')+'"><div class="moduleInfo z-10 shadow-md bg-slate-50 px-2 py-1 w-full lg:w-[calc(25vw-0.75rem)] absolute top-0 right-0"><h2>'+element.getAttribute('data-name')+' - ' + element.getAttribute('data-ref')+'</h2><div>'+element.getAttribute('data-program')+'</div><span class="closeModal cursor-pointer font-bold">Fermer</span></div></span><span class="deleteModule text-xl ml-2">X</span></div></li>';
         count++;
 
         // active de manière dynamique les listener de up down et delete
@@ -188,6 +188,7 @@ if (document.getElementById('createFormation') || document.getElementById('editF
 }
 
 // __________________________________________________________________________________________________________________________________________
+
 // Api insee
 if (document.getElementById('register')) {
     const siret = document.getElementById('siret');
@@ -246,5 +247,89 @@ if (document.getElementById('register')) {
             numVoieEtablissement.parentElement.parentElement.classList.add('hidden');
         }
     })
+}
+
+// __________________________________________________________________________________________________________________________________________
+
+if (document.getElementById('showFormation')) {
+    const name = document.getElementById('name');
+    const nameLabel = document.querySelector('label[for=name]');
+    const email = document.getElementById('email');
+    const emailLabel = document.querySelector('label[for=email]');
+    const telephone = document.getElementById('telephone');
+    const telephoneLabel = document.querySelector('label[for=telephone]');
+    const siret = document.getElementById('siret');
+    const siretLabel = document.querySelector('label[for=siret]');
+    const buttonValidate = document.getElementById('buttonValidate');
+    var nameChecked = false;
+    var emailChecked = false
+    var telephoneChecked = false
+    var siretChecked = false
+
+    name.addEventListener('input', function () {
+        if (this.value !== '') {
+            nameLabel.classList.add('text-green-500');
+            nameLabel.classList.remove('text-red-500');
+            nameChecked = true;
+        } else {
+            nameChecked = false;
+            nameLabel.classList.remove('text-green-500');
+            nameLabel.classList.add('text-red-500');
+        }
+        buttonIsValid(nameChecked, emailChecked, telephoneChecked, siretChecked);
+    })
+    email.addEventListener('input', function () {
+        if (this.value.includes('@') && this.value.includes('.')) {
+            emailLabel.classList.add('text-green-500');
+            emailLabel.classList.remove('text-red-500');
+            emailChecked = true;
+        } else {
+            emailChecked = false;
+            emailLabel.classList.remove('text-green-500');
+            emailLabel.classList.add('text-red-500');
+        }
+        buttonIsValid(nameChecked, emailChecked, telephoneChecked, siretChecked);
+    })
+    telephone.addEventListener('input', function () {
+        if (this.value.length === 10) {
+            telephoneLabel.classList.add('text-green-500');
+            telephoneLabel.classList.remove('text-red-500');
+            telephoneChecked = true;
+        } else {
+            telephoneChecked = false;
+            telephoneLabel.classList.remove('text-green-500');
+            telephoneLabel.classList.add('text-red-500');
+        }
+        buttonIsValid(nameChecked, emailChecked, telephoneChecked, siretChecked);
+    })
+    siret.addEventListener('input', function () {
+        if (this.value.length === 14) {
+            siretLabel.classList.add('text-green-500');
+            siretLabel.classList.remove('text-red-500');
+            siretChecked = true;
+        } else {
+            siretChecked = false;
+            siretLabel.classList.remove('text-green-500');
+            siretLabel.classList.add('text-red-500');
+        }
+        buttonIsValid(nameChecked, emailChecked, telephoneChecked, siretChecked);
+    })
+
+    function buttonIsValid(nameChecked, emailChecked, telephoneChecked, siretChecked) {
+        if (nameChecked && emailChecked && telephoneChecked && siretChecked) {
+            buttonValidate.disabled = false;
+            buttonValidate.classList.add('bg-green-500');
+            buttonValidate.classList.remove('bg-red-500');
+        } else {
+            buttonValidate.disabled = true;
+            buttonValidate.classList.remove('bg-green-500');
+            buttonValidate.classList.add('bg-red-500');
+        }
+
+        console.log(nameChecked);
+        console.log(emailChecked);
+        console.log(telephoneChecked);
+        console.log(siretChecked);
+    }
 }
 Alpine.start();

@@ -20,13 +20,16 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory(10)->create();
         DB::table('users')->insert([
             'organization_id' => null,
+            'competences' => 'Super dev, sympa, français, aime les jeux, sympa, français, aime les jeux, sympa, français, aime les jeux, sympa, français, aime les jeux, sympa, français, aime les jeux',
             'first_name' => 'Kévin',
             'last_name' => 'Gasté',
+            'description' => 'Je suis là et je suis ici blablablablablbal mais je ne sais pas quoi écrire ici donc voilà ce que vous aurez mdr suis là et je suis ici blablablablablbal mais je ne sais pas quoi écrire ici donc voilà ce que vous aurez mdr suis là et je suis ici blablablablablbal mais je ne sais pas quoi écrire ici donc voilà ce que vous aurez mdr suis là et je suis ici blablablablablbal mais je ne sais pas quoi écrire ici donc voilà ce que vous aurez mdr suis là et je suis ici blablablablablbal mais je ne sais pas quoi écrire ici donc voilà ce que vous aurez mdr',
             'email' => 'lanza@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'mobilityDepartment' => "['Aube', 'Paris']",
+            'mobilityDepartment' => "[\"Aube\", \"Paris\", \"Meuse\", \"Mosette\"]",
             'role' => 99,
+            'profile_photo_path' => "https://busiup.fr/wp-content/uploads/2021/02/photo-OD-2018-nb-1.jpg",
             'poste' => 'Stagiaire',
             'telephone' => '01 02 03 04 05',
             'image' => null,

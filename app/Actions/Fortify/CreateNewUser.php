@@ -30,6 +30,7 @@ class CreateNewUser implements CreatesNewUsers
         ])->validate();
 
         return User::create([
+            'crm_id' => null,
             'first_name' => $input['first_name'],
             'last_name' => $input['last_name'],
             'mobilityDepartment' => json_encode($input['mobilityDepartment']),

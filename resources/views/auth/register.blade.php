@@ -15,14 +15,14 @@
                 <h3 class="text-center text-slate-50 text-3xl mb-4">Votre Entreprise</h3>
                 <p id="errorMsg" class="text-red-500 mb-3"></p>
                 <div class="w-full flex justify-between flex-wrap">
-                    <div class="w-full flex">
+                    <div class="w-full flex flex-wrap">
 
-                        <div class="w-3/5 pr-2">
+                        <div class="w-full lg:w-3/5 lg:pr-2">
                             <x-jet-label class="text-slate-50 text-xl" for="siret" value="{{ __('Merci de préciser votre SIRET') }}" />
                             <x-jet-input id="siret" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="siret" :value="old('siret')" required />
                         </div>
 
-                        <div class="w-2/5 pl-2">
+                        <div class="w-full lg:w-2/5 lg:pl-2">
                             <x-jet-label class="text-slate-50 text-xl" for="numSalaries" value="{{ __('Nombre de salarié') }}" />
                             <x-jet-input id="numSalaries" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="numSalaries" :value="old('numSalaries')" required />
                         </div>
@@ -30,27 +30,27 @@
 
                     <input type="hidden" name="organization_id" value="1">
 
-                    <div class="w-full flex">
+                    <div class="w-full flex flex-wrap">
 
-                        <div class="w-1/2 pr-2">
+                        <div class="w-full lg:w-1/2 lg:pr-2">
                             <x-jet-label class="text-slate-50 text-xl" for="codeAPENAF" value="{{ __('Précisez votre Code APE/NAF') }}" />
                             <x-jet-input id="codeAPENAF" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="codeAPENAF" :value="old('codeAPENAF')" required />
                         </div>
                         
-                        <div class="w-1/2 pl-2">
+                        <div class="w-full lg:w-1/2 lg:pl-2">
                             <x-jet-label class="text-slate-50 text-xl" for="numTVA" value="{{ __('Précisez votre numéro TVA') }}" />
                             <x-jet-input id="numTVA" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="numTVA" :value="old('numTVA')" required />
                         </div>
                     </div>
 
-                    <div class="w-full flex">
+                    <div class="w-full flex flex-wrap">
 
-                        <div class="w-3/5 pr-2">
+                        <div class="w-full lg:w-3/5 lg:pr-2">
                             <x-jet-label class="text-slate-50 text-xl" for="opcoOpca" value="{{ __('Précisez votre OPCO/OPCA') }}" />
                             <x-jet-input id="opcoOpca" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="opcoOpca" :value="old('opcoOpca')" required />
                         </div>
     
-                        <div class="w-2/5 pl-2">
+                        <div class="w-full lg:w-2/5 lg:pl-2">
                             <x-jet-label class="text-slate-50 text-xl" for="idcc" value="{{ __('Précisez votre IDCC') }}" />
                             <x-jet-input id="idcc" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="idcc" :value="old('idcc')" required />
                         </div>
@@ -61,7 +61,7 @@
                         <x-jet-input id="denominationUniteLegale" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="denominationUniteLegale" :value="old('denominationUniteLegale')" />
                     </div>
                     
-                    <div class="w-full hidden flex justify-between">
+                    <div class="w-full hidden flex justify-between flex-wrap">
                         <div class="w-8/12">
                             <x-jet-label class="text-slate-50 text-xl" for="libelleCommuneEtablissement" value="{{ __('Nom de l entreprise') }}" />
                             <x-jet-input id="libelleCommuneEtablissement" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="libelleCommuneEtablissement" :value="old('libelleCommuneEtablissement')" />
@@ -70,8 +70,8 @@
                             <x-jet-label class="text-slate-50 text-xl" for="postalCodeEtablissement" value="{{ __('CP l entreprise') }}" />
                             <x-jet-input id="postalCodeEtablissement" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="postalCodeEtablissement" :value="old('postalCodeEtablissement')" />
                         </div>
-
                     </div>
+                    
                     <div class="w-full hidden flex justify-between">
                         <div class="w-2/12">
                             <x-jet-label class="text-slate-50 text-xl" for="numVoieEtablissement" value="{{ __('Numero') }}" />
@@ -120,13 +120,13 @@
                 <div class="flex flex-wrap justify-between">
                     <x-jet-label class="mb-2 text-xl text-slate-50 w-full" for="" value="{{ __('Selectionnez les lieux ou vous pouvez aller') }}" />
                     @foreach ($regions as $key => $region)
-                        <div class="regions w-1/2 ">
+                        <div class="regions w-full lg:w-1/2 text-center lg:text-start ">
                             <label>
                                 <span class="mr-2 cursor-pointer hover:underline">{{$region}}</span>
                                 <input class="hidden region" type="checkbox" />
                                 @foreach ($departements as $departement)
                                     @if ($departement -> region -> nom === $region)
-                                        <div class="departements hidden items-center">
+                                        <div class="departements hidden items-center justify-center lg:justify-start">
                                             <input type="checkbox" id="{{$departement->nom}}" name="mobilityDepartment[]"/>
                                             <label class="ml-2" for="{{$departement->nom}}">{{$departement -> nom}} - {{$departement -> code}}</label>
                                         </div>
@@ -137,12 +137,12 @@
                     @endforeach
                 </div>
     
-                <div class="flex mt-4">
-                    <div class="w-3/5">
+                <div class="flex flex-wrap mt-4">
+                    <div class="w-full lg:w-3/5">
                         <x-jet-label class="text-slate-50 text-xl" for="telephone" value="{{ __('Numéro de téléphone') }}" />
-                        <x-jet-input id="telephone" class="text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="telephone" required/>
+                        <x-jet-input id="telephone" class="text-neutral-800 pl-2 w-full lg:w-5/6 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="telephone" required/>
                     </div>
-                    <div class="w-2/5 flex flex-wrap justify-between">
+                    <div class="w-full lg:w-2/5 my-1 flex flex-wrap justify-between">
                         <x-jet-label class="text-slate-50 text-xl w-full" value="{{ __('Civilité') }}" />
 
                         <div class="flex items-center">
@@ -150,12 +150,10 @@
                             <x-jet-label class="ml-2 text-slate-50 text-xl" for="women" value="{{ __('Femme') }}" />
                         </div>
                         <div class="flex items-center">
-                            
                             <input type="radio" name="gender" id="men" />
                             <x-jet-label class="ml-2 text-slate-50 text-xl" for="men" value="{{ __('Homme') }}" />
                         </div>
                         <div class="flex items-center">
-                            
                             <input type="radio" name="gender" id="other" checked />
                             <x-jet-label class="ml-2 text-slate-50 text-xl" for="other" value="{{ __('Autre') }}"/>
                         </div>
@@ -203,7 +201,7 @@
                 </x-jet-label>
             </div>
         @endif
-        <a class="text-xl hover:underline flex justify-center items-center mt-4" href="{{ route('login') }}">
+        <a class="text-xl hover:underline flex justify-center items-center my-4" href="{{ route('login') }}">
             {{ __('Déjà enregistré?') }}
         </a>
     </x-jet-authentication-card>

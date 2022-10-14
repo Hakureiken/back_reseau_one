@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('contact_forms', function (Blueprint $table) {
             $table->id();
+            $table->string('reference');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+            $table->string('telephone');
+            $table->text('content');
             $table->timestamps();
         });
     }

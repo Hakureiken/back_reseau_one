@@ -16,14 +16,18 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->foreignId('organization_id')->nullable()->constrained()->onDelete('cascade');
+            $table->string('crm_id')->nullable();
+            $table->string('competences')->nullable();
             $table->string('first_name');
             $table->string('last_name');
+            $table->text('description');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('mobilityDepartment');
             $table->integer('role')->nullable();
             $table->string('poste');
+            $table->string('reseaux')->nullable();
             $table->string('telephone');
             $table->string('image')->nullable();
             $table->rememberToken();

@@ -1,10 +1,11 @@
 <?php
 
 use App\Models\User;
+use GuzzleHttp\Middleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
-use GuzzleHttp\Middleware;
+use App\Http\Controllers\ContactFormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,5 @@ use GuzzleHttp\Middleware;
 // });
 
 Route::get('/user',[ UserController::class, "getAllUsers"])->middleware('CORS');
+Route::get('/user/{user}',[ UserController::class, "getUser"])->middleware('CORS');
+Route::post('/contact',[ ContactFormController::class, "storeFromFront"]);

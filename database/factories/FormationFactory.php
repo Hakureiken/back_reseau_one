@@ -29,7 +29,7 @@ class FormationFactory extends Factory
             'objective' => $this -> faker-> text(50),
             'prerequisite' => $this -> faker -> text(50),
             'trainingprogram' => $this -> faker -> text(50),
-            'reference' => $this -> faker -> word(),
+            'reference' => $this -> faker -> unique() -> word(),
             'duration_hours' => $this -> faker -> numberBetween(20,800),
             'duration_days' => $this -> faker -> numberBetween(7,170),
             'document_id' => $this -> faker -> randomDigitNotNull(),

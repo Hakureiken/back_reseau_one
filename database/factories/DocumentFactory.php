@@ -18,7 +18,7 @@ class DocumentFactory extends Factory
     {
         return [
             'name' => $this -> faker -> name(),
-            'propale_id' => $this -> faker -> randomDigitNotNull(), 
+            'propale_id' => $this -> faker -> randomDigitNotNull(),
         ];
     }
 }

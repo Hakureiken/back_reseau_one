@@ -3,7 +3,7 @@
     @client
     @auth
         
-        <h1 class="text-4xl text-center py-4 relative">Liste des modules validés <a class="absolute top-1/2 right-10 -translate-y-1/2 text-xl hover:underline border rounded-full py-2 px-4 bg-lime-500 text-slate-50" href="{{route('module.create')}}">Créer un module</a></h1>
+        <h1 class="text-4xl text-center pb-4 pt-20 lg:py-4 relative">Liste des modules validés <a class="absolute top-10 right-[20%] lg:top-1/2 lg:right-14 -translate-y-1/2 text-xl hover:underline border rounded-full py-2 px-4 bg-lime-500 text-slate-50" href="{{route('module.create')}}">Créer un module</a></h1>
         <div class="flex flex-wrap justify-evenly">
             @foreach ($modules as $module)
             {{-- remplacer 'Kévin Gasté' par $module -> assignedUserName --}}

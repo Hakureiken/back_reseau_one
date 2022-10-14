@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
             'email' => 'lanza@gmail.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'mobilityDepartment' => "['Aube', 'Paris']",
+            'mobilityDepartment' => "[\"Aube\", \"Paris\"]",
             'role' => 99,
             'poste' => 'Stagiaire',
             'telephone' => '01 02 03 04 05',

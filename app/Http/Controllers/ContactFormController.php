@@ -38,11 +38,12 @@ class ContactFormController extends Controller
     {
         $contact_form = new Contact_form;
 
-        $contact_form -> name = $request -> name;
+        $contact_form -> reference = $request -> reference;
+        $contact_form -> first_name = $request -> first_name;
+        $contact_form -> last_name = $request -> last_name;
+        $contact_form -> email = $request -> email;
+        $contact_form -> telephone = $request -> telephone;
         $contact_form -> content = $request -> content;
-        $contact_form -> starting_date = $request -> starting_date;
-        $contact_form -> ending_date = $request -> ending_date;
-        $contact_form -> document_id = $request -> document_id;
 
         $contact_form -> save();
 
@@ -102,5 +103,22 @@ class ContactFormController extends Controller
         $contact_form -> delete();
 
         return redirect() -> route('contact_form.index');
+    }
+
+    public function storeFromFront(Request $request)
+    {
+        
+        $contact_form = new Contact_form;
+
+        $contact_form -> reference = $request -> reference;
+        $contact_form -> first_name = $request -> first_name;
+        $contact_form -> last_name = $request -> last_name;
+        $contact_form -> email = $request -> email;
+        $contact_form -> telephone = $request -> telephone;
+        $contact_form -> content = $request -> content;
+
+        $contact_form -> save();
+
+        return $request;
     }
 }
