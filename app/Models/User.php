@@ -41,6 +41,7 @@ class User extends Authenticatable
         'telephone',
         'mobilityDepartment',
         'poste',
+        'crm_id',
         'organization_id',
         'adress',
         'email',

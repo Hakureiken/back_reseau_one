@@ -40,6 +40,7 @@ class UserFactory extends Factory
             'poste' => $this->faker->word(),
             'reseaux' => $this->faker->word(),
             'telephone' => $this->faker->word(),
+            'catchPhrase' => $this->faker->word(),
             'image' => $this->faker->image(),
             'remember_token' => Str::random(10),
         ];

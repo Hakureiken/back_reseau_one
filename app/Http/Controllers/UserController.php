@@ -8,14 +8,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function getAllUsers(User $user)
+    public function getAllUsers()
     {
         return User::all();
     }
 
     public function getUser(User $user)
     {
-        
         return $user;
     }
 }

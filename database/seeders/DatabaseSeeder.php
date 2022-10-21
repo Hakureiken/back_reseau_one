@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
             'profile_photo_path' => "https://busiup.fr/wp-content/uploads/2021/02/photo-OD-2018-nb-1.jpg",
             'poste' => 'Stagiaire',
             'telephone' => '01 02 03 04 05',
+            'catchPhrase' => 'La team rocket s\'envole vers d\'autre cieuuuuux',
             'image' => null,
             'remember_token' => Str::random(10),
         ]);

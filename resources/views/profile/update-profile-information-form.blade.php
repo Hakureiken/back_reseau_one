@@ -65,11 +65,16 @@
             <x-jet-input-error for="last_name" class="mt-2" />
         </div>
 
-        
         <div class="col-span-6 sm:col-span-4">
             <x-jet-label for="competences" value="{{ __('Vos compétences (séparez-les par des virgules)') }}" />
             <x-jet-input id="competences" type="text" class="mt-1 block w-full" wire:model.defer="state.competences" autocomplete="competences" />
             <x-jet-input-error for="competences" class="mt-2" />
+        </div>
+        
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="catchPhrase" value="{{ __('Votre phrase de présentation') }}" />
+            <x-jet-input id="catchPhrase" type="text" class="mt-1 block w-full" wire:model.defer="state.catchPhrase" autocomplete="catchPhrase" />
+            <x-jet-input-error for="catchPhrase" class="mt-2" />
         </div>
         
         <div class="col-span-6 sm:col-span-4">

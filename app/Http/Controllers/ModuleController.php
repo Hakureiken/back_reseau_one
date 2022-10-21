@@ -154,4 +154,21 @@ class ModuleController extends Controller
 
         return redirect() -> route('module.index');
     }
+
+    public function createModule(Request $request)
+    {
+        $module = new Module;
+        
+        $module -> name = $request -> name;
+        $module -> reference = $request -> reference;
+        $module -> program = $request -> program;
+        $module -> description = $request -> description;
+        $module -> domain = $request -> domain;
+        $module -> durationHours = $request -> durationHours;
+        $module -> durationDays = $request -> durationDays;
+        $module -> created_at = date('Y-m-d h:i:s');
+        $module -> updated_at = date('Y-m-d h:i:s');
+
+        $module -> save();
+    }
 }

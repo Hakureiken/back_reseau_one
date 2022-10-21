@@ -17,6 +17,7 @@ class OrganizationFactory extends Factory
     public function definition()
     {
         return [
+            'crm_id' => $this -> faker -> word(),
             'siret' => $this -> faker -> word(),
             'numSalaries' => $this -> faker -> word(),
             'codeAPENAF' => $this -> faker -> word(),

@@ -29,6 +29,7 @@ class UserSeeder extends Seeder
             'role' => 99,
             'poste' => 'Stagiaire',
             'telephone' => '01 02 03 04 05',
+            'catchPhrase' => 'La team rocket s\'envole vers d\'autre cieuuuuux',
             'image' => null,
             'remember_token' => Str::random(10),
         ]);

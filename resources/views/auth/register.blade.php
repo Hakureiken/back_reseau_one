@@ -9,10 +9,10 @@
         <h2 class="my-6 text-5xl">S&#x27;enregistrer</h2>
         <form id="register" class="w-4/5 lg:w-full flex justify-around flex-col lg:flex-row flex-wrap" method="POST" action="{{ route('register') }}">
             @csrf
-
             {{-- entreprise --}}
             <div class="w-full lg:w-2/5 ">
                 <h3 class="text-center text-slate-50 text-3xl mb-4">Votre Entreprise</h3>
+                <h3>Si votre entreprise n'est pas française merci de nous contacter à cette adresse : <a class="underline" href="#">contact@contact.com</a></h3>
                 <p id="errorMsg" class="text-red-500 mb-3"></p>
                 <div class="w-full flex justify-between flex-wrap">
                     <div class="w-full flex flex-wrap">
@@ -87,15 +87,6 @@
                         </div>
                     </div>
 
-                    {{-- <div class="w-full hidden">
-                        <x-jet-label class="text-slate-50 text-xl" for="xxxx" value="{{ __('xxxx') }}" />
-                        <x-jet-input id="xxxx" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="xxx" :value="old('xxxx')" />
-                    </div>
-
-                    <div class="w-full hidden">
-                        <x-jet-label class="text-slate-50 text-xl" for="xxxxx" value="{{ __('xxxxx') }}" />
-                        <x-jet-input id="xxxxx" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="xxxxx" :value="old('xxxxx')" />
-                    </div> --}}
                 </div>
             </div>
 
@@ -114,19 +105,19 @@
     
                 <div class="flex flex-col">
                     <x-jet-label class="text-slate-50 text-xl" for="email" value="{{ __('Merci de préciser votre courriel') }}" />
-                    <x-jet-input id="email" class="text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="email" name="email" :value="old('email')" required />
+                    <x-jet-input id="email" class="text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="email" name="email" value="{{ $_GET ? $_GET['email'] : old('email')}}" required />
                 </div>
-
+                
                 <div class="flex flex-wrap justify-between">
                     <x-jet-label class="mb-2 text-xl text-slate-50 w-full" for="" value="{{ __('Selectionnez les lieux ou vous pouvez aller') }}" />
                     @foreach ($regions as $key => $region)
                         <div class="regions w-full lg:w-1/2 text-center lg:text-start ">
-                            <label>
+                            <label class="flex flex-col items-center">
                                 <span class="mr-2 cursor-pointer hover:underline">{{$region}}</span>
                                 <input class="hidden region" type="checkbox" />
                                 @foreach ($departements as $departement)
                                     @if ($departement -> region -> nom === $region)
-                                        <div class="departements hidden items-center justify-center lg:justify-start">
+                                        <div class="w-64 lg:w-auto departements hidden items-center justify-between flex-row-reverse lg:flex-row lg:justify-start">
                                             <input type="checkbox" id="{{$departement->nom}}" name="mobilityDepartment[]"/>
                                             <label class="ml-2" for="{{$departement->nom}}">{{$departement -> nom}} - {{$departement -> code}}</label>
                                         </div>

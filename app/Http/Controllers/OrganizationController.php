@@ -49,6 +49,7 @@ class OrganizationController extends Controller
     {
         $organization = new Organization;
 
+        $organization -> crm_id = $request -> crm_id;
         $organization -> siret = $request -> siret;
         $organization -> denominationUniteLegale = $request -> denominationUniteLegale;
         $organization -> libelleCommuneEtablissement = $request -> libelleCommuneEtablissement;
@@ -121,9 +122,7 @@ class OrganizationController extends Controller
             'Content-Type' => 'application/json'
         ];
         $body = '{"type": "stagiaire super sympa"}';
-        // dd(($body));
         $request_guzzle = new Request('PATCH', 'https://crm.reseau-one.com/api/v1/Account/632473e9e60cfb94b', $headers, $body);
-        // dd($request_guzzle);
         $res = $client->sendAsync($request_guzzle)->wait();
         $data = json_decode($res->getBody());
         dd($data);
@@ -149,5 +148,28 @@ class OrganizationController extends Controller
         $organization -> delete();
 
         return redirect() -> route('organization.index');
+    }
+
+    public function createOrganization(Request $request)
+    {
+        $organization = new Organization;
+        
+        $organization -> crm_id = $request -> crm_id;
+        $organization -> siret = $request -> siret;
+        $organization -> numSalaries = $request -> numSalaries;
+        $organization -> codeAPENAF = $request -> codeAPENAF;
+        $organization -> numTVA = $request -> numTVA;
+        $organization -> opcoOpca = $request -> opcoOpca;
+        $organization -> idcc = $request -> idcc;
+        $organization -> denominationUniteLegale = $request -> denominationUniteLegale;
+        $organization -> libelleCommuneEtablissement = $request -> libelleCommuneEtablissement;
+        $organization -> postalCodeEtablissement = $request -> postalCodeEtablissement;
+        $organization -> numVoieEtablissement = $request -> numVoieEtablissement;
+        $organization -> typeVoieEtablissement = $request -> typeVoieEtablissement;
+        $organization -> libelleVoieEtablissement = $request -> libelleVoieEtablissement;
+        $organization -> created_at = date('Y-m-d h:i:s');
+        $organization -> updated_at = date('Y-m-d h:i:s');
+
+        $organization -> save();
     }
 }

@@ -4,7 +4,6 @@
         <div class="flex flex-wrap justify-evenly">
             @foreach ($formations as $formation)
             @if (Auth::user() -> role > 90 ?: $formation -> is_submitted)
-                {{-- {{var_dump($formation)}} --}}
             
                 <div class="mx-2 w-96 mb-8 border-solid border-2 border-neutral-600">
                     <div class="h-24">
@@ -20,7 +19,6 @@
                         </div>
                     </div>
                     @auth 
-                    {{-- {{var_dump($name)}} --}}
                     <div class="flex justify-around mb-2">
                     @if ($formation -> assignedUserName === Auth::user() -> name || (Auth::user() -> role) > 90)
                     

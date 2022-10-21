@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('competences')->nullable();
             $table->string('first_name');
             $table->string('last_name');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('poste');
             $table->string('reseaux')->nullable();
             $table->string('telephone');
+            $table->string('catchPhrase')->nullable();
             $table->string('image')->nullable();
             $table->rememberToken();
             $table->string('profile_photo_path', 2048)->nullable();

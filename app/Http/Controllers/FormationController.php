@@ -190,4 +190,30 @@ class FormationController extends Controller
 
         return redirect() -> route('formation.index');
     }
+
+    public function createFormation(Request $request)
+    {
+        $formation = new Formation;
+        
+        $formation -> id_crm = $request -> id;
+        $formation -> laraRef = bin2hex(random_bytes(10)).time();
+        $formation -> assignedUserName = $request -> assignedUserName;
+        $formation -> assignedUserId = $request -> assignedUserId;
+        $formation -> name = $request -> name;
+        $formation -> concernedPublic = $request -> concernedPublic;
+        $formation -> dateAndLocation = $request -> dateAndLocation;
+        $formation -> description = $request -> description;
+        $formation -> objective = $request -> objective;
+        $formation -> prerequisite = $request -> prerequisite;
+        $formation -> trainingprogram = $request -> trainingprogram;
+        $formation -> reference = $request -> reference;
+        $formation -> duration_hours = $request -> duration_hours;
+        $formation -> duration_days = $request -> duration_days;
+        $formation -> document_id = $request -> document_id;
+        $formation -> is_submitted = $request -> is_submitted;
+        $formation -> created_at = date('Y-m-d h:i:s');
+        $formation -> updated_at = date('Y-m-d h:i:s');
+
+        $formation -> save();
+    }
 }

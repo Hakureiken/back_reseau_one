@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use GuzzleHttp\Client;
 use App\Models\Contact_form;
-use Illuminate\Http\Request;
+use illuminate\Http\Request;
+use GuzzleHttp\Psr7\Request as RequestGuzzle;
+
 
 class ContactFormController extends Controller
 {
@@ -105,9 +108,48 @@ class ContactFormController extends Controller
         return redirect() -> route('contact_form.index');
     }
 
+    // by API
     public function storeFromFront(Request $request)
     {
-        
+        // stockage dans le crm le prospect et la formation qui lui est lié
+        dd($request);
+        $client = new Client();
+        $headers = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json'
+        ];
+        $body = json_encode([
+            "name" => $request -> first_name . ' ' . $request -> last_name,
+            "emailAddress" => $request -> email,
+            "phoneNumber" => $request -> telephone,
+            "description" => $request -> content,
+            "trainingsIds" => [
+                $request -> id
+            ]
+        ]);
+        dd($body);
+        $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/Lead', $headers, $body);
+        $res = $client->sendAsync($requestGuzzle)->wait();
+        $content = json_decode($res->getBody());
+
+        // stockage dans le crm l'id du prospect qui est lié à la formation
+        $clientOne = new Client();
+        $headersOne = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json'
+        ];
+        $bodyOne = json_encode([
+            "leadsIds" => [
+                $content -> id
+            ]
+        ]);
+
+        $requestGuzzleOne = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/Lead', $headersOne, $bodyOne);
+        $resOne = $clientOne->sendAsync($requestGuzzleOne)->wait();
+        $contentOne = json_decode($resOne->getBody());
+
+
+        // on stock dans la bdd de laravel
         $contact_form = new Contact_form;
 
         $contact_form -> reference = $request -> reference;
