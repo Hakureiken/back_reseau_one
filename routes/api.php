@@ -35,6 +35,6 @@ Route::post('/module',[ ModuleController::class, "createModule"])->middleware('C
 
 Route::post('/organization',[ OrganizationController::class, "createOrganization"])->middleware('CORS');
 
-Route::post('/document',[ DocumentController::class, "createDocument"])->middleware('CORS');
+// Route::post('/document',[ DocumentController::class, "createDocument"])->middleware('CORS');
 
 Route::post('/contact',[ ContactFormController::class, "storeFromFront"])->middleware('CORS');

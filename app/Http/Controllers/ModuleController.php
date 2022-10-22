@@ -16,7 +16,21 @@ class ModuleController extends Controller
      */
     public function index()
     {
-        $modules = Module::all();
+        // $modules = Module::all();
+        $client = new Client();
+        $headers = [
+            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
+            'Content-Type' => 'application/json',
+            'timeout' => 20,
+            'verify' => false
+        ];
+
+        // $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
+        $modules = $client -> request('GET','https://crm.reseau-one.com/api/v1/module', [
+            'headers' => $headers,
+        ]);
+
+        dd($modules);
         return view('module.index', compact('modules'));
     }
 
@@ -42,10 +56,12 @@ class ModuleController extends Controller
         $client = new Client();
         $headers = [
             'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
-            'Content-Type' => 'application/json'
+            'Content-Type' => 'application/json',
+            'timeout' => 20,
+            'verify' => false
         ];
 
-        $bodyArray = json_encode([
+        $bodyArray = [
             "name" => $request -> name,
             "assignedUserId" => "632836db1b7252184",
             "program" => $request -> program,
@@ -54,11 +70,16 @@ class ModuleController extends Controller
             "domain" => $request -> domain,
             "durationHours" => $request -> durationHours,
             "durationDays" => $request -> durationDays,
-        ]);
+        ];
 
-        $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
-        $res = $client->sendAsync($requestGuzzle)->wait();
-        echo $res->getBody();
+        // $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
+        $client -> request('POST','https://crm.reseau-one.com/api/v1/module', [
+            'headers' => $headers,
+            'form_params' => $bodyArray,
+        ]);
+        
+        // $res = $client->sendAsync($requestGuzzle)->wait();
+        // echo $res->getBody();
 
         // on stock les informations dans la bdd laravel
         $module = new Module;

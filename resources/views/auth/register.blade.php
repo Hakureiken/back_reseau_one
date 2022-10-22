@@ -7,7 +7,7 @@
         <x-jet-validation-errors class="mb-4" />
 
         <h2 class="my-6 text-5xl">S&#x27;enregistrer</h2>
-        <form id="register" class="w-4/5 lg:w-full flex justify-around flex-col lg:flex-row flex-wrap" method="POST" action="{{ route('register') }}">
+        <form id="register" class="w-4/5 lg:w-full flex justify-around flex-col lg:flex-row flex-wrap" method="POST" action="{{ route('register.store') }}">
             @csrf
             {{-- entreprise --}}
             <div class="w-full lg:w-2/5 ">
@@ -36,7 +36,7 @@
                             <x-jet-label class="text-slate-50 text-xl" for="codeAPENAF" value="{{ __('Précisez votre Code APE/NAF') }}" />
                             <x-jet-input id="codeAPENAF" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="codeAPENAF" :value="old('codeAPENAF')" required />
                         </div>
-                        
+
                         <div class="w-full lg:w-1/2 lg:pl-2">
                             <x-jet-label class="text-slate-50 text-xl" for="numTVA" value="{{ __('Précisez votre numéro TVA') }}" />
                             <x-jet-input id="numTVA" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="numTVA" :value="old('numTVA')" required />
@@ -49,7 +49,7 @@
                             <x-jet-label class="text-slate-50 text-xl" for="opcoOpca" value="{{ __('Précisez votre OPCO/OPCA') }}" />
                             <x-jet-input id="opcoOpca" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="opcoOpca" :value="old('opcoOpca')" required />
                         </div>
-    
+
                         <div class="w-full lg:w-2/5 lg:pl-2">
                             <x-jet-label class="text-slate-50 text-xl" for="idcc" value="{{ __('Précisez votre IDCC') }}" />
                             <x-jet-input id="idcc" class="w-full text-neutral-800 pl-2 lg:pl-4 h-11 rounded-xl my-4 mx-0 border-none" type="text" name="idcc" :value="old('idcc')" required />

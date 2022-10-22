@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         'http://localhost:3000/catalogues',
         'http://localhost:3000/catalogue/formation',
+        'https://crm.reseau-one.com/api/v1/module'
     ];
 }

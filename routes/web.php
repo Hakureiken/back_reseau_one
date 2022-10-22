@@ -9,6 +9,7 @@ use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\FormationController;
 use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\RegisteredUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,9 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('/register', [RegisteredUserController::class, 'create'])->name('register.create');
+Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
 Route::resource('formation',FormationController::class);
 Route::resource('document',DocumentController::class);
