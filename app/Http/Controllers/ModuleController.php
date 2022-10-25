@@ -16,21 +16,8 @@ class ModuleController extends Controller
      */
     public function index()
     {
-        // $modules = Module::all();
-        $client = new Client();
-        $headers = [
-            'X-API-KEY' => 'a5ad5c59a1cf03d6a9cb826510ef6a40',
-            'Content-Type' => 'application/json',
-            'timeout' => 20,
-            'verify' => false
-        ];
-
-        // $requestGuzzle = new RequestGuzzle('POST', 'https://crm.reseau-one.com/api/v1/module', $headers, $bodyArray);
-        $modules = $client -> request('GET','https://crm.reseau-one.com/api/v1/module', [
-            'headers' => $headers,
-        ]);
-
-        dd($modules);
+        $modules = Module::all();
+        
         return view('module.index', compact('modules'));
     }
 
